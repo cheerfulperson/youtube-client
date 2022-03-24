@@ -48,6 +48,7 @@
             "code": 140
           }
         ],
+        "import/prefer-default-export": "off",
         "no-console": "off"
       }
     },
