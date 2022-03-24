@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-common-btn',
   templateUrl: './common-btn.component.html',
-  styleUrls: ['./common-btn.component.scss']
+  styleUrls: ['./common-btn.component.scss'],
 })
-export class CommonBtnComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class CommonBtnComponent {
+  // constructor() {}
 }

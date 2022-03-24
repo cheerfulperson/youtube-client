@@ -8,9 +8,8 @@ describe('CommonBtnComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CommonBtnComponent ]
-    })
-    .compileComponents();
+      declarations: [CommonBtnComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

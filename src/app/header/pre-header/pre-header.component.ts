@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-pre-header',
   templateUrl: './pre-header.component.html',
-  styleUrls: ['./pre-header.component.scss']
+  styleUrls: ['./pre-header.component.scss'],
 })
-export class PreHeaderComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class PreHeaderComponent {
+  // constructor() {}
 }
