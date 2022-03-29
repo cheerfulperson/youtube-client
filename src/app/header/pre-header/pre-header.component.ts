@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./pre-header.component.scss'],
 })
 export class PreHeaderComponent {
-  // constructor() {}
+  public sortingList: string[] = [
+    'date',
+    'count of views',
+    'by word or sentance',
+  ];
+
+  public choice: string = 'by word or sentance';
+
+  public changeChoice(newChoice: string): void {
+    this.choice = newChoice;
+  }
 }

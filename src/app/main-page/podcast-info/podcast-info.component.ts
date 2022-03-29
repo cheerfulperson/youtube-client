@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Item } from 'src/app/shared/response.model';
 
 @Component({
   selector: 'app-podcast-info',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./podcast-info.component.scss'],
 })
 export class PodcastInfoComponent {
-  // constructor() {}
+  @Input() public statistics: Item['statistics'] | undefined;
 }

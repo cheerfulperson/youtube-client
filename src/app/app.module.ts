@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { CreateCardFormComponent } from './create-card-form/create-card-form.component';
 import { SearchItemsService } from './shared/search-items.service';
+import { TimeBorderDirective } from './main-page/card/shared/time-border.directive';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { SearchItemsService } from './shared/search-items.service';
     LoginComponent,
     RegistrationComponent,
     CreateCardFormComponent,
+    TimeBorderDirective,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { SearchItemsService } from './shared/search-items.service';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
   ],
   providers: [SearchItemsService],
   bootstrap: [AppComponent],

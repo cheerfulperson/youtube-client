@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import response from '../../assets/response.json';
+import { Response } from '../shared/response.model';
 
 @Component({
   selector: 'app-main-page',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-page.component.scss'],
 })
 export class MainPageComponent {
+  public response: Response = response;
   // constructor() {}
 }
