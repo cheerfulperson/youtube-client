@@ -1,1 +1,28 @@
-<p>search works!</p>
+<div class="search">
+  <a class="search__logo">
+    <img src="../../assets/svg/youtube.svg" alt="" />
+  </a>
+  <div class="search__block">
+    <input
+      class="search__input"
+      type="search"
+      placeholder="What are you want to find out?"
+    />
+    <button
+      mat-raised-button
+      appBtnStyle
+      [bgColor]="'#2F80ED'"
+      class="search__button"
+    >
+      search
+    </button>
+  </div>
+  <button
+    mat-raised-button
+    appBtnStyle
+    [bgColor]="'#2F80ED'"
+    class="search__settings-btn"
+  >
+    <mat-icon class="search__settings-btn-icon">tune</mat-icon>
+  </button>
+</div>

@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BtnStyleDirective } from './common-btn/shared/btn-style.directive';
-import { CommonBtnComponent } from './common-btn/common-btn.component';
+import { BtnStyleDirective } from './shared/btn-style.directive';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './header/search/search.component';
 import { UserIconComponent } from './header/user-icon/user-icon.component';
@@ -24,7 +27,6 @@ import { SearchItemsService } from './shared/search-items.service';
   declarations: [
     AppComponent,
     BtnStyleDirective,
-    CommonBtnComponent,
     HeaderComponent,
     SearchComponent,
     UserIconComponent,
@@ -39,7 +41,14 @@ import { SearchItemsService } from './shared/search-items.service';
     RegistrationComponent,
     CreateCardFormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+  ],
   providers: [SearchItemsService],
   bootstrap: [AppComponent],
 })
