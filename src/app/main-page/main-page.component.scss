@@ -1,7 +1,17 @@
 .main-page {
     display: flex;
     flex-wrap: wrap;
+    box-sizing: border-box;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
     width: 100%;
+    padding: 20px;
+
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        justify-content: center;
+        align-items: stretch;
+    }
 }

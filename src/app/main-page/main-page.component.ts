@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import response from '../../assets/response.json';
-import { Response } from '../shared/response.model';
+import { Item, Response } from '../shared/response.model';
 
 @Component({
   selector: 'app-main-page',
@@ -9,5 +9,10 @@ import { Response } from '../shared/response.model';
 })
 export class MainPageComponent {
   public response: Response = response;
-  // constructor() {}
+
+  public videoItem: Item | null = response.items[0];
+
+  public chooseItem(item: Item | null): void {
+    this.videoItem = item;
+  }
 }
