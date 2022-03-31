@@ -27,6 +27,7 @@ import { LogoComponent } from './header/logo/logo.component';
 import { LoginInformationComponent } from './header/login-information/login-information.component';
 import { WordInputComponent } from './filtering-block/word-input/word-input.component';
 import { FilteringBlockComponent } from './filtering-block/filtering-block.component';
+import { SettingsButtonComponent } from './header/settings-button/settings-button.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { FilteringBlockComponent } from './filtering-block/filtering-block.compo
     LoginInformationComponent,
     WordInputComponent,
     FilteringBlockComponent,
+    SettingsButtonComponent,
   ],
   imports: [
     BrowserModule,

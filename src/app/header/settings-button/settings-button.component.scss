@@ -1,0 +1,11 @@
+.settings-btn {
+    display: block;
+    min-width: 24px;
+    height: 24px;
+    line-height: 0;
+    padding: 0;
+
+    .settings-btn-icon {
+        transform: scale(0.8);
+    }
+}
