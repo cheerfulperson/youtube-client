@@ -1,4 +1,8 @@
-<app-header></app-header>
+<app-header
+  [isFilterBlockHidden]="isFilteringBlockHidden"
+  (isFilterHiddenChanged)="isFilteringBlockHidden = $event"
+></app-header>
+<app-filtering-block *ngIf="!isFilteringBlockHidden"></app-filtering-block>
 <main>
   <app-main-page></app-main-page>
 </main>

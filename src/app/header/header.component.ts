@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  public isFilteringBlockHidden: boolean = true;
-  // constructor() {}
+  @Input() public isFilterBlockHidden: boolean = true;
+
+  @Output() public isFilterHiddenChanged: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
+
+  public changeFilterBlockhidden(e: boolean): void {
+    this.isFilterHiddenChanged.emit(e);
+  }
 }

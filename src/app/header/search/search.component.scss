@@ -9,11 +9,6 @@
     @include flex;
     min-width: 570px;
 
-    &__logo {
-        @include flex;
-        cursor: pointer
-    }
-
     &__block {
         @include flex;
         width: 100%;

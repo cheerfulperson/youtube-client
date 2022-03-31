@@ -1,8 +1,8 @@
 <mat-toolbar class="header">
+  <app-logo></app-logo>
   <app-search
-    [isSortBlockHidden]="isFilteringBlockHidden"
-    (sortHiddenChanged)="isFilteringBlockHidden = $event"
+    [isSortBlockHidden]="isFilterBlockHidden"
+    (sortHiddenChanged)="changeFilterBlockhidden($event)"
   ></app-search>
-  <app-user-icon></app-user-icon>
+  <app-login-information></app-login-information>
 </mat-toolbar>
-<app-pre-header *ngIf="!isFilteringBlockHidden"></app-pre-header>

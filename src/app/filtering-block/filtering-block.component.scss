@@ -10,25 +10,21 @@
     }
 
     &__list-item {
+        display: flex;
+        align-items: center;
         list-style-type: none;
         margin: 0 10.5px;
+        user-select: none; 
         cursor: pointer;
+    }
+
+    &__mat-icon {
+        color: black;
+        transform: scale(0.8);
     }
 
     &__text {
         color: #2f80ed;
         text-decoration: underline;
-    }
-
-    &__input {
-        height: 14px;
-        background: white;
-        border: none;
-        outline: none;
-        transition: 0.3s;
-
-        &:focus {
-            box-shadow: 0 0 4px 1px gray;
-        }
     }
 }
