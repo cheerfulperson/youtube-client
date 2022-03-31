@@ -8,9 +8,8 @@ describe('WordInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WordInputComponent ]
-    })
-    .compileComponents();
+      declarations: [WordInputComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

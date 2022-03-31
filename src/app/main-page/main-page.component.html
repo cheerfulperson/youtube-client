@@ -1,7 +1,7 @@
 <section class="main-page">
   <div class="main-page__cards" *ngIf="!videoItem && videoItems">
     <app-card
-    *ngFor="let item of videoItems"
+    *ngFor="let item of (videoItems | resultFilter: filterString)"
       [itemData]="item"
       (selectedData)="videoItem = $event"
     ></app-card>

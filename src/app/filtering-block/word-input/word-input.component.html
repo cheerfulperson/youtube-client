@@ -3,4 +3,5 @@
   class="input"
   [disabled]="choice !== 'by word or sentance'"
   placeholder="Word or sentance"
+  (input)="changeFilteringString($event)"
 />

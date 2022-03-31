@@ -20,7 +20,6 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { CreateCardFormComponent } from './create-card-form/create-card-form.component';
-import { SearchItemsService } from './shared/search-items.service';
 import { TimeBorderDirective } from './main-page/card/shared/time-border.directive';
 import { SearchHandlerService } from './shared/search-handler.service';
 import { LogoComponent } from './header/logo/logo.component';
@@ -28,6 +27,8 @@ import { LoginInformationComponent } from './header/login-information/login-info
 import { WordInputComponent } from './filtering-block/word-input/word-input.component';
 import { FilteringBlockComponent } from './filtering-block/filtering-block.component';
 import { SettingsButtonComponent } from './header/settings-button/settings-button.component';
+import { FetchDataService } from './shared/fetch-data.service';
+import { ResultFilterPipe } from './main-page/shared/result-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { SettingsButtonComponent } from './header/settings-button/settings-butto
     WordInputComponent,
     FilteringBlockComponent,
     SettingsButtonComponent,
+    ResultFilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,7 @@ import { SettingsButtonComponent } from './header/settings-button/settings-butto
     MatButtonModule,
     MatCardModule,
   ],
-  providers: [SearchItemsService, SearchHandlerService],
+  providers: [SearchHandlerService, FetchDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
