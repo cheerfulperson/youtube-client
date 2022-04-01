@@ -24,7 +24,10 @@
       >
     </li>
     <li class="pre-header__list-item">
-      <app-word-input [choice]="choice" (choiceChanged)="choice = $event"></app-word-input>
+      <app-word-input
+        [choice]="choice"
+        (choiceChanged)="choice = $event"
+      ></app-word-input>
     </li>
   </ul>
 </mat-toolbar>
