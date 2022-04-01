@@ -20,7 +20,10 @@ export class SearchHandlerService {
 
   public filterStringChanged$ = this.filterStringChangedSource.asObservable();
 
+  public filterString: string = '';
+
   public changeFilterString(str: string): void {
+    this.filterString = str;
     this.filterStringChangedSource.next(str);
   }
 

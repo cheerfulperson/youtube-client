@@ -1,7 +1,10 @@
-<input
-  type="text"
-  class="input"
-  [disabled]="choice !== 'by word or sentance'"
-  placeholder="Word or sentance"
-  (input)="changeFilteringString($event)"
-/>
+<div class="input-container" (click)="changeChoice()">
+  <input
+    type="text"
+    class="input-container__input"
+    placeholder="Word or sentance"
+    [value]="inputValue"
+    (input)="changeFilteringString($event)"
+    #filterInput
+  />
+</div>
