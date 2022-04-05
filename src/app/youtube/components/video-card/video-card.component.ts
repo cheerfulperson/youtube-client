@@ -7,7 +7,7 @@ import { Item } from 'src/app/shared/response.model';
   styleUrls: ['./video-card.component.scss'],
 })
 export class VideoCardComponent {
-  @Input() itemData: Item | null = null;
+  @Input() public itemData: Item | null = null;
 
   @Output() itemDataChanged: EventEmitter<null> = new EventEmitter<null>();
 

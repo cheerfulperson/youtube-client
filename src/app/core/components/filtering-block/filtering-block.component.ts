@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SearchHandlerService } from '../shared/search-handler.service';
+import { SearchHandlerService } from '../../services/search-handler.service';
 
 @Component({
   selector: 'app-filtering-block',

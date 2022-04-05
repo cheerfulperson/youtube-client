@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { SearchHandlerService } from 'src/app/shared/search-handler.service';
+import { SearchHandlerService } from 'src/app/core/services/search-handler.service';
 
 @Component({
   selector: 'app-word-input',

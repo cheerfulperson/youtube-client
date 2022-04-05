@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SearchHandlerService } from './search-handler.service';
-import response from '../../assets/response.json';
+import response from '../../../assets/response.json';
 
 @Injectable({
   providedIn: 'root',

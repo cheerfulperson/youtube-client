@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Item } from '../shared/response.model';
-import { SearchHandlerService } from '../shared/search-handler.service';
+import { SearchHandlerService } from 'src/app/core/services/search-handler.service';
+import { Item } from '../../../shared/response.model';
 import { ResultFilterPipe } from './shared/result-filter.pipe';
 
 @Component({

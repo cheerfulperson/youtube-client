@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FetchDataService } from 'src/app/shared/fetch-data.service';
+import { FetchDataService } from 'src/app/core/services/fetch-data.service';
 
 @Component({
   selector: 'app-search',

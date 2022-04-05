@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Response, Item } from './response.model';
+import { Response, Item } from '../../shared/response.model';
 
 @Injectable({
   providedIn: 'root',
