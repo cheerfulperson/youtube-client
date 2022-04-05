@@ -1,5 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FilteringBlockComponent } from './components/filtering-block/filtering-block.component';
@@ -22,7 +23,7 @@ import { SharedModule } from '../shared/shared.module';
     SettingsButtonComponent,
     WordInputComponent,
   ],
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, RouterModule],
   exports: [HeaderComponent, LogoComponent],
   providers: [SearchHandlerService, FetchDataService],
 })

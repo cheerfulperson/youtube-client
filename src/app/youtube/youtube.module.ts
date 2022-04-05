@@ -9,7 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { TimeBorderDirective } from './directives/time-border.directive';
 import { PodcastInfoComponent } from './components/main-page/podcast-info/podcast-info.component';
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
-import { VideoCardComponent } from './components/video-card/video-card.component';
+import { VideoCardComponent } from './components/detailed-info-page/video-card.component';
 
 const routes: Routes = [
   {

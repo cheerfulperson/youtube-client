@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SearchHandlerService } from 'src/app/core/services/search-handler.service';
 import { Item } from '../../../shared/response.model';
 import { ResultFilterPipe } from './shared/result-filter.pipe';
@@ -9,10 +9,8 @@ import { ResultFilterPipe } from './shared/result-filter.pipe';
   styleUrls: ['./main-page.component.scss'],
   providers: [ResultFilterPipe],
 })
-export class MainPageComponent {
+export class MainPageComponent implements OnInit {
   public videoItems: Item[] | undefined;
-
-  public videoItem: Item | null = null;
 
   public filterString: string = '';
 
@@ -28,7 +26,7 @@ export class MainPageComponent {
     });
   }
 
-  public chooseItem(item: Item | null): void {
-    this.videoItem = item;
+  public ngOnInit(): void {
+    this.videoItems = this.searchHandlerService.sortedData;
   }
 }
