@@ -17,13 +17,17 @@ const routes: Routes = [
     component: MainPageComponent,
   },
   {
+    path: 'result',
+    component: MainPageComponent,
+  },
+  {
     path: 'video/:id',
     component: VideoCardComponent,
   },
-  {
-    path: '**',
-    component: NotFoundPageComponent,
-  },
+  // {
+  //   path: '**',
+  //   component: NotFoundPageComponent,
+  // },
 ];
 
 @NgModule({

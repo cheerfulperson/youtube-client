@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-login-information',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./login-information.component.scss'],
 })
 export class LoginInformationComponent {
-  // constructor() {}
+  @Input() public isUserAuth: boolean = false;
+
+  @Input() public name: string = '';
+
+  public constructor(private authSerice: AuthService) {}
+
+  public logout(): void {
+    this.authSerice.logout();
+  }
 }

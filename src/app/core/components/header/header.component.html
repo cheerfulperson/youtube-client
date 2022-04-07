@@ -5,6 +5,6 @@
     [isSortBlockHidden]="isFilterBlockHidden"
     (sortHiddenChanged)="changeFilterBlockhidden($event)"
   ></app-settings-button>
-  <app-login-information></app-login-information>
+  <app-login-information [isUserAuth]="isUserAuthorized" [name]="userAuthData?.name || ''"></app-login-information>
 </mat-toolbar>
 <app-filtering-block *ngIf="!isFilterBlockHidden"></app-filtering-block>
