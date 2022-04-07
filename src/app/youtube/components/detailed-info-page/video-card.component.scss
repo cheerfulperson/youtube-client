@@ -13,7 +13,10 @@
     height: 461px;
     align-items: flex-start;
     background: none;
-
+    @media (max-width: 1440px) {
+        flex-wrap: wrap;
+        height: auto;
+    }
     &__button {
         width: 32px;
         min-width: 32px;
@@ -29,6 +32,13 @@
         object-fit: fill;
         border-radius: 0 0 0 5px;
         box-shadow: 5px 10px 10px #2f80ed40;
+        @media (max-width: 1440px) {
+            max-width: 100%;
+            max-height: 550px;
+        }
+        @media (max-width: 768px) {
+            max-height: 320px;
+        }
     }
 
     .info-block {
@@ -41,7 +51,10 @@
         padding: 35px;
         border-radius: 0 5px 5px 0;
         box-shadow: 5px 10px 10px #2f80ed40;
-
+        @media (max-width: 1440px) {
+            max-width: 100%;
+            max-height: 550px;
+        }
         &__header {
             display: flex;
             flex-direction: row;
@@ -99,6 +112,9 @@
                 white-space: pre-wrap;
                 max-height: 200px;
                 overflow-y: auto;
+                @media (max-width: 1440px) {
+                    max-height: 320px;
+                }
             }
         }
     }
