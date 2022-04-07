@@ -12,6 +12,7 @@ import { SearchComponent } from './components/header/search/search.component';
 import { SettingsButtonComponent } from './components/header/settings-button/settings-button.component';
 import { WordInputComponent } from './components/filtering-block/word-input/word-input.component';
 import { SharedModule } from '../shared/shared.module';
+import { AuthService } from '../auth/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [CommonModule, SharedModule, RouterModule],
   exports: [HeaderComponent, LogoComponent],
-  providers: [SearchHandlerService, FetchDataService],
+  providers: [SearchHandlerService, FetchDataService, AuthService],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
       (data: UserAuthData | undefined) => {
         this.userAuthData = data;
         this.isUserAuthorized = this.authSerivice.isUserAuthorized;
+        console.log(this.isUserAuthorized);
       }
     );
   }

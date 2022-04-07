@@ -1,7 +1,14 @@
+.header-block {
+    background: #E5E5E5;
+}
+
 .header {
+    position: relative;
+    margin: auto;
     height: 80px;
     background: #E5E5E5;
     justify-content: center;
+    max-width: 1920px;
 }
 
 .header__list {

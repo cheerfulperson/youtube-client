@@ -7,7 +7,9 @@
     height: 24px;
     right: 0;
     margin-right: 156px;
-
+    @media (max-width: 1440px) {
+        margin-right: 30px;
+    }
     &__name {
         text-transform: capitalize;
     }
@@ -26,5 +28,8 @@
         line-height: 0;
         text-transform: capitalize;
         margin-left: 10px;
+        @media (max-width: 1440px) {
+            margin-left: 5px;
+        }
     }
 }

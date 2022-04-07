@@ -24,10 +24,14 @@ const routes: Routes = [
     path: 'video/:id',
     component: VideoCardComponent,
   },
-  // {
-  //   path: '**',
-  //   component: NotFoundPageComponent,
-  // },
+  {
+    path: '404',
+    component: NotFoundPageComponent,
+  },
+  {
+    path: '**',
+    redirectTo: '404',
+  },
 ];
 
 @NgModule({

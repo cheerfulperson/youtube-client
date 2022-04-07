@@ -1,10 +1,12 @@
-<mat-toolbar class="header">
-  <app-logo></app-logo>
-  <app-search></app-search>
-  <app-settings-button
-    [isSortBlockHidden]="isFilterBlockHidden"
-    (sortHiddenChanged)="changeFilterBlockhidden($event)"
-  ></app-settings-button>
-  <app-login-information [isUserAuth]="isUserAuthorized" [name]="userAuthData?.name || ''"></app-login-information>
-</mat-toolbar>
+<header class="header-block">
+  <mat-toolbar class="header">
+    <app-logo></app-logo>
+    <app-search></app-search>
+    <app-settings-button
+      [isSortBlockHidden]="isFilterBlockHidden"
+      (sortHiddenChanged)="changeFilterBlockhidden($event)"
+    ></app-settings-button>
+    <app-login-information [isUserAuth]="isUserAuthorized" [name]="userAuthData?.name || ''"></app-login-information>
+  </mat-toolbar>
+</header>
 <app-filtering-block *ngIf="!isFilterBlockHidden"></app-filtering-block>

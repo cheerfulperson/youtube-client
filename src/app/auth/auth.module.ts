@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './components/login/login.component';
-import { AuthService } from './services/auth.service';
 import { RegistrationComponent } from './components/registration/registration.component';
 
 const router: Routes = [
@@ -18,9 +18,14 @@ const router: Routes = [
   },
 ];
 @NgModule({
-  declarations: [LoginComponent],
-  imports: [CommonModule, SharedModule, RouterModule.forChild(router)],
-  providers: [AuthService],
+  declarations: [LoginComponent, RegistrationComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    SharedModule,
+    RouterModule.forChild(router),
+  ],
+  providers: [],
   exports: [SharedModule, RouterModule],
 })
 export class AuthModule {}

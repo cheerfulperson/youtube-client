@@ -9,6 +9,10 @@
     @include flex;
     min-width: 570px;
 
+    @media (max-width: 1440px) {
+        min-width: 360px;
+    }
+
     &__block {
         @include flex;
         width: 100%;
