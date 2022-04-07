@@ -25,7 +25,8 @@ export class AuthService {
   public reauthorizeUser(): void {
     const data: UserAuthData | null = AuthService.getLocalUserData();
     if (data) {
-      this.authorizeUser(data);
+      this.isUserAuthorized = true;
+      this.updateUSerData(data);
     }
   }
 

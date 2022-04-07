@@ -1,35 +1,45 @@
 .user-login {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 28px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 28px;
+  height: 24px;
+  right: 0;
+  margin-right: 156px;
+  @media (max-width: 1440px) {
+    margin-right: 30px;
+  }
+
+  &__name {
+    text-transform: capitalize;
+    @media (max-width: 960px) {
+      display: none;
+    }
+  }
+
+  &__button {
+    min-width: 24px;
     height: 24px;
-    right: 0;
-    margin-right: 156px;
+    line-height: 0;
+    padding: 0;
+    margin-left: 10px;
+  }
+
+  &__login-btn {
+    min-width: 24px;
+    height: 24px;
+    line-height: 0;
+    text-transform: capitalize;
+    margin-left: 10px;
     @media (max-width: 1440px) {
-        margin-right: 30px;
+      margin-left: 5px;
     }
-    &__name {
-        text-transform: capitalize;
-    }
+  }
+}
 
-    &__button {
-        min-width: 24px;
-        height: 24px;
-        line-height: 0;
-        padding: 0;
-        margin-left: 10px;
-    }
-
-    &__login-btn {
-        min-width: 24px;
-        height: 24px;
-        line-height: 0;
-        text-transform: capitalize;
-        margin-left: 10px;
-        @media (max-width: 1440px) {
-            margin-left: 5px;
-        }
-    }
+.media-btn {
+  @media (max-width: 960px) {
+    display: none;
+  }
 }

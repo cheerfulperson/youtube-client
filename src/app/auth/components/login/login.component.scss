@@ -20,6 +20,12 @@
   right: 0;
   margin: auto;
 
+  @media (max-height: 540px) {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
   &__title {
     width: 100%;
     text-align: left;

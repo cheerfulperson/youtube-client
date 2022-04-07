@@ -9,6 +9,9 @@
     background: #E5E5E5;
     justify-content: center;
     max-width: 1920px;
+    @media (max-width: 960px) {
+        justify-content: left;
+    }
 }
 
 .header__list {
