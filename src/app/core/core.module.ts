@@ -1,6 +1,7 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FilteringBlockComponent } from './components/filtering-block/filtering-block.component';
@@ -13,6 +14,7 @@ import { SettingsButtonComponent } from './components/header/settings-button/set
 import { WordInputComponent } from './components/filtering-block/word-input/word-input.component';
 import { SharedModule } from '../shared/shared.module';
 import { AuthService } from '../auth/services/auth.service';
+import { HttpInterceptorService } from './services/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,18 @@ import { AuthService } from '../auth/services/auth.service';
     SettingsButtonComponent,
     WordInputComponent,
   ],
-  imports: [CommonModule, SharedModule, RouterModule],
-  exports: [HeaderComponent, LogoComponent],
-  providers: [SearchHandlerService, FetchDataService, AuthService],
+  imports: [CommonModule, SharedModule, RouterModule, HttpClientModule],
+  exports: [HeaderComponent, LogoComponent, HttpClientModule],
+  providers: [
+    SearchHandlerService,
+    FetchDataService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true,
+    },
+  ],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

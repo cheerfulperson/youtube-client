@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Item, Response } from 'src/app/shared/response.model';
 import { SearchHandlerService } from './search-handler.service';
 import response from '../../../assets/response.json';
@@ -9,11 +10,25 @@ import response from '../../../assets/response.json';
 export class FetchDataService {
   public response: Response | undefined;
 
-  constructor(private searchHandlerService: SearchHandlerService) {}
+  constructor(
+    private searchHandlerService: SearchHandlerService,
+    private httpService: HttpClient
+  ) {}
 
   public getResponseData(): void {
     this.response = response;
-    this.searchHandlerService.insertResponse(this.response);
+    this.httpService
+      .get<Response>(`https://www.googleapis.com/youtube/v3/search`, {
+        params: new HttpParams()
+          .set('type', 'video')
+          .set('part', 'snippet')
+          .set('maxResults', '15')
+          .set('q', 'cats'),
+      })
+      .subscribe((data: Response) => {
+        console.log(data);
+        this.searchHandlerService.insertResponse(data);
+      });
   }
 
   public getItemById(id: string): Item | null {
