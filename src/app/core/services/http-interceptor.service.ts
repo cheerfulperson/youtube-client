@@ -17,7 +17,7 @@ export class HttpInterceptorService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const reqInfo = req.clone({
-      params: req.params.set('key', this.apiKey),
+      params: req.params.set('key', this.apiKey).set('part', 'snippet'),
     });
 
     return next.handle(reqInfo);

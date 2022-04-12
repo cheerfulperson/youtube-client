@@ -15,18 +15,16 @@ export class FetchDataService {
     private httpService: HttpClient
   ) {}
 
-  public getResponseData(): void {
+  public setResponseData(query: string): void {
     this.response = response;
     this.httpService
       .get<Response>(`https://www.googleapis.com/youtube/v3/search`, {
         params: new HttpParams()
           .set('type', 'video')
-          .set('part', 'snippet')
           .set('maxResults', '15')
-          .set('q', 'cats'),
+          .set('q', query),
       })
       .subscribe((data: Response) => {
-        console.log(data);
         this.searchHandlerService.insertResponse(data);
       });
   }
