@@ -16,8 +16,10 @@ export class HttpInterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    const url: string = req.url[0] === '/' ? req.url : `/${req.url}`;
     const reqInfo = req.clone({
-      params: req.params.set('key', this.apiKey).set('part', 'snippet'),
+      url: `https://www.googleapis.com/youtube/v3${url}`,
+      params: req.params.set('key', this.apiKey),
     });
 
     return next.handle(reqInfo);

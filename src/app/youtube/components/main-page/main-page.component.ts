@@ -20,6 +20,7 @@ export class MainPageComponent implements OnInit {
     private youtubeService: YoutubeService
   ) {
     this.youtubeService.response$.subscribe((res: Item[] | undefined) => {
+      console.log(res);
       this.videoItems = res;
     });
 

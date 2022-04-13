@@ -21,6 +21,14 @@
         order: 4;
         min-width: 210px;
     }
+
+    &__icon {
+        width: 100px;
+        padding-right: 20px;
+        color: green;
+        text-align: center;
+    }
+
     &__block {
         @include flex;
         width: 100%;
@@ -28,7 +36,7 @@
         margin: 0 10px;
 
         .search__input {
-            width: 100%;
+            width: 90%;
             height: 24px;
             background: #EFEFEF;
             border: none;
@@ -43,17 +51,15 @@
             }
 
             &:focus {
-                width: 90%;
+                width: 100%;
                 outline: none;
                 box-shadow: 0 0 4px 1px gray;
             }
         }
 
         .search__button {
-            width: 80px;
-            height: 24px;
-            line-height: 0;
-            border-radius: 0 4px 4px 0;
+            transform: scale(0.2);
+            padding-right: 20px;
         }
     }
 

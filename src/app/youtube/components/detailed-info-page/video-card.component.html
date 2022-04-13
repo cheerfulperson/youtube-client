@@ -9,13 +9,11 @@
     >
       <mat-icon>keyboard_arrow_left</mat-icon>
     </button>
-  
-    <img
-      [src]="itemData.snippet.thumbnails.maxres.url"
-      class="full-card__image"
-      alt="Photo"
-    />
-  
+
+    <div class="full-card__image">
+      <img [src]="itemData.snippet.thumbnails.high.url" alt="Photo" />
+    </div>
+
     <div
       appTimeBorder
       [borderBottom]="itemData.snippet.publishedAt"

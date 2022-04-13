@@ -4,16 +4,10 @@
       class="search__input"
       type="search"
       placeholder="What are you want to find out?"
+      [(ngModel)]="searchInputValue"
+      (input)="fetchResponseResults()"
     />
-    <button
-      mat-raised-button
-      appBtnStyle
-      [bgColor]="'#2F80ED'"
-      class="search__button"
-      routerLink="result"
-      (click)="fetchResponseResults()"
-    >
-      search
-    </button>
+    <mat-spinner class="search__button" *ngIf="isUserTyping"></mat-spinner>
+    <mat-icon class="search__icon" *ngIf="!isUserTyping">check</mat-icon>
   </div>
 </div>
