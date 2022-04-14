@@ -1,4 +1,4 @@
-<form class="create-card" [formGroup]="cardFormControl">
+<form class="create-card" [formGroup]="cardFormControl" (submit)="submit()">
   <h2 class="create-card__title">Create new card</h2>
 
   <mat-form-field class="create-card__form-field" appearance="fill">

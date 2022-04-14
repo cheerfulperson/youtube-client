@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MyErrorStateMatcher } from 'src/app/shared/error-state-matcher.model';
 import { AuthService } from '../../services/auth.service';
 import { CustomPswValidatorDirective } from '../../shared/custom-psw-validator.directive';
 
@@ -14,6 +15,8 @@ import { CustomPswValidatorDirective } from '../../shared/custom-psw-validator.d
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  public matcher: MyErrorStateMatcher = new MyErrorStateMatcher();
+
   public loginFormGroup: FormGroup = new FormGroup({
     email: new FormControl('', [
       Validators.required,
@@ -41,6 +44,8 @@ export class LoginComponent {
   public constructor(private authService: AuthService) {}
 
   public submit(): void {
+    if (this.loginFormGroup.invalid) return;
+
     this.authService.authorizeUser({
       name: 'Your Name',
       token: `asdasdadsadddfvbabvobhubhoijo2er.

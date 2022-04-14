@@ -1,7 +1,7 @@
 <form class="login" [formGroup]="loginFormGroup" [ngStyle]="{
   'max-height':
     passwordControl.valid || !passwordControl.dirty ? '258px' : '278px'
-}">
+}" (submit)="submit()">
   <h2 class="login__title">login</h2>
   <mat-form-field class="login__form-field" appearance="fill">
     <mat-label class="login__form-label">Email</mat-label>
@@ -9,13 +9,14 @@
       type="email"
       matInput
       formControlName="email"
+      [errorStateMatcher]="matcher"
       class="login__from-input"
       placeholder="Jhon Deel"
     />
     <mat-error
       *ngIf="emailControl.invalid && !emailControl.hasError('required')"
     >
-      The login email is <strong>invalida</strong>
+      The login email is <strong>invalid</strong>
     </mat-error>
     <mat-error *ngIf="emailControl.hasError('required')">
       Please enter <strong>a login email</strong>
@@ -36,6 +37,7 @@
       [type]="hide ? 'password' : 'text'"
       autocomplete="off"
       formControlName="password"
+      [errorStateMatcher]="matcher"
       class="login__from-input"
     />
     <button
@@ -73,8 +75,7 @@
       appBtnStyle
       [bgColor]="'#2F80ED'"
       class="login__btn"
-      [disabled]="emailControl.invalid || passwordControl.invalid"
-      (click)="submit()"
+      type="submit"
     >
       login
     </button>

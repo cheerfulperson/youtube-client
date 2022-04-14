@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MyErrorStateMatcher } from 'src/app/shared/error-state-matcher.model';
 import { TimeValidatorDirective } from '../../directives/time-validator.directive';
 import regUriPattern from './shared/reg-exp-patterns.json';
@@ -46,5 +47,13 @@ export class CreateCardFormComponent {
 
   public getInputControl(name: string): AbstractControl {
     return this.cardFormControl.get(name) as AbstractControl;
+  }
+
+  public constructor(private router: Router) {}
+
+  public submit(): void {
+    if (this.cardFormControl.invalid) return;
+
+    this.router.navigateByUrl('/');
   }
 }

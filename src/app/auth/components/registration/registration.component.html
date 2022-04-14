@@ -5,6 +5,7 @@
     'max-height':
       passwordControl.valid || !passwordControl.dirty ? '418px' : '438px'
   }"
+  (submit)="submit()"
 >
   <h2 class="registration__title">registration</h2>
 
@@ -38,6 +39,7 @@
       type="email"
       matInput
       formControlName="email"
+      [errorStateMatcher]="matcher"
       class="registration__from-input"
       placeholder="pat@example.com"
     />
@@ -66,6 +68,7 @@
       [type]="hide ? 'password' : 'text'"
       autocomplete="off"
       formControlName="password"
+      [errorStateMatcher]="matcher"
       class="registration__from-input"
     />
     <button
@@ -104,7 +107,6 @@
       appBtnStyle
       [bgColor]="'#2F80ED'"
       class="registration__btn"
-      (click)="submit()"
     >
       registration
     </button>
