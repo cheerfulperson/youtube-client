@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { ResultFilterPipe } from './components/main-page/shared/result-filter.pipe';
@@ -13,6 +14,7 @@ import { VideoCardComponent } from './components/detailed-info-page/video-card.c
 import { AuthGuard } from '../core/guards/auth.guard';
 import { YoutubeService } from './services/youtube.service';
 import { CreateCardFormComponent } from './components/create-card-form/create-card-form.component';
+import { TimeValidatorDirective } from './directives/time-validator.directive';
 
 const routes: Routes = [
   {
@@ -56,8 +58,14 @@ const routes: Routes = [
     NotFoundPageComponent,
     VideoCardComponent,
     CreateCardFormComponent,
+    TimeValidatorDirective,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    SharedModule,
+    ReactiveFormsModule,
+  ],
   providers: [YoutubeService],
   exports: [RouterModule],
 })
