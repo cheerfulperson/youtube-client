@@ -1,4 +1,11 @@
-<form class="registration" [formGroup]="loginFormGroup">
+<form
+  class="registration"
+  [formGroup]="loginFormGroup"
+  [ngStyle]="{
+    'max-height':
+      passwordControl.valid || !passwordControl.dirty ? '418px' : '438px'
+  }"
+>
   <h2 class="registration__title">registration</h2>
 
   <mat-form-field class="registration__form-field" appearance="fill">
@@ -9,8 +16,8 @@
       formControlName="firstName"
       class="registration__from-input"
       placeholder="Jhon"
+      maxlength="20"
     />
-    <mat-error>No</mat-error>
   </mat-form-field>
 
   <mat-form-field class="registration__form-field" appearance="fill">
@@ -21,8 +28,8 @@
       formControlName="lastName"
       class="registration__from-input"
       placeholder="Smith"
+      maxlength="20"
     />
-    <mat-error>No</mat-error>
   </mat-form-field>
 
   <mat-form-field class="registration__form-field" appearance="fill">
@@ -34,10 +41,25 @@
       class="registration__from-input"
       placeholder="pat@example.com"
     />
-    <mat-error>No</mat-error>
+    <mat-error
+      *ngIf="emailControl.invalid && !emailControl.hasError('required')"
+    >
+      The login email is <strong>invalida</strong>
+    </mat-error>
+    <mat-error *ngIf="emailControl.hasError('required')">
+      Please enter <strong>a login email</strong>
+    </mat-error>
   </mat-form-field>
 
-  <mat-form-field class="registration__form-field" appearance="fill">
+  <mat-form-field
+    class="registration__form-field"
+    appearance="fill"
+    [ngStyle]="{
+      'margin-top': '5px',
+      'margin-bottom':
+        passwordControl.valid || !passwordControl.dirty ? '0px' : '20px'
+    }"
+  >
     <mat-label class="registration__form-label">Password</mat-label>
     <input
       matInput
@@ -55,7 +77,18 @@
     >
       <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
     </button>
-    <mat-error>No</mat-error>
+    <mat-error *ngIf="passwordControl.hasError('required')">
+      Please enter <strong>a password</strong>
+    </mat-error>
+    <mat-error
+      *ngIf="
+        passwordControl.hasError('customError') &&
+        !passwordControl.hasError('required')
+      "
+    >
+      Your password isn't strong enough:
+      <strong>{{ passwordControl.getError('customError').value }}</strong>
+    </mat-error>
   </mat-form-field>
 
   <div class="registration__btns-group">

@@ -12,6 +12,7 @@ import { NotFoundPageComponent } from './components/not-found-page/not-found-pag
 import { VideoCardComponent } from './components/detailed-info-page/video-card.component';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { YoutubeService } from './services/youtube.service';
+import { CreateCardFormComponent } from './components/create-card-form/create-card-form.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,11 @@ const routes: Routes = [
   {
     path: 'video/:id',
     component: VideoCardComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin-page',
+    component: CreateCardFormComponent,
     canActivate: [AuthGuard],
   },
   {
@@ -49,6 +55,7 @@ const routes: Routes = [
     PodcastInfoComponent,
     NotFoundPageComponent,
     VideoCardComponent,
+    CreateCardFormComponent,
   ],
   imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
   providers: [YoutubeService],

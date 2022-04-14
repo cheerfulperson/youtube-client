@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AuthGuard } from '../core/guards/auth.guard';
+import { CustomPswValidatorDirective } from './shared/custom-psw-validator.directive';
 
 const router: Routes = [
   {
@@ -24,8 +25,13 @@ const router: Routes = [
     redirectTo: '/404',
   },
 ];
+
 @NgModule({
-  declarations: [LoginComponent, RegistrationComponent],
+  declarations: [
+    LoginComponent,
+    RegistrationComponent,
+    CustomPswValidatorDirective,
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
