@@ -2,7 +2,7 @@ export interface ICardInfo {
   id: string;
   title: string;
   description: string;
-  imageUrl: string;
-  videoUrl: string;
+  imageLink: string;
+  videoLink: string;
   date: Date;
 }

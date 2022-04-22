@@ -5,4 +5,8 @@
       [itemData]="item"
     ></app-card>
   </div>
+  <div class="main-page__cards" >
+    <app-custom-card *ngFor="let item of (cards | async)" [card]="item">
+    </app-custom-card>
+  </div>
 </section>

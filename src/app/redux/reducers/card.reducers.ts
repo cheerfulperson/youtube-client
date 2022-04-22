@@ -11,6 +11,11 @@ export const cardReducers = (
         ...state,
         selectedCard: action.payload,
       };
+    case ECardsActions.AddCardSuccess:
+      return {
+        ...state,
+        selectedCard: action.payload,
+      };
     case ECardsActions.GetCardsSuccess:
       return {
         ...state,

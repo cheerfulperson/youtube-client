@@ -15,6 +15,7 @@ import { AuthGuard } from '../core/guards/auth.guard';
 import { YoutubeService } from './services/youtube.service';
 import { CreateCardFormComponent } from './components/create-card-form/create-card-form.component';
 import { TimeValidatorDirective } from './directives/time-validator.directive';
+import { CustomCardComponent } from './components/main-page/custom-card/custom-card.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,7 @@ const routes: Routes = [
     VideoCardComponent,
     CreateCardFormComponent,
     TimeValidatorDirective,
+    CustomCardComponent,
   ],
   imports: [
     CommonModule,

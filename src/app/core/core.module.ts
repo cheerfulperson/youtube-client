@@ -2,6 +2,9 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FilteringBlockComponent } from './components/filtering-block/filtering-block.component';
@@ -15,6 +18,8 @@ import { WordInputComponent } from './components/filtering-block/word-input/word
 import { SharedModule } from '../shared/shared.module';
 import { AuthService } from '../auth/services/auth.service';
 import { HttpInterceptorService } from './services/http-interceptor.service';
+import { appReducers } from '../redux/reducers/app.reducers';
+import { CardEffects } from '../redux/effects/card.effects';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,15 @@ import { HttpInterceptorService } from './services/http-interceptor.service';
     SettingsButtonComponent,
     WordInputComponent,
   ],
-  imports: [CommonModule, SharedModule, RouterModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    RouterModule,
+    HttpClientModule,
+    StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot([CardEffects]),
+    StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
+  ],
   exports: [HeaderComponent, LogoComponent, HttpClientModule],
   providers: [
     SearchHandlerService,

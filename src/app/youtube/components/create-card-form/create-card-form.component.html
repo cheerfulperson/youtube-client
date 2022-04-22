@@ -77,25 +77,6 @@
     >
   </mat-form-field>
 
-  <mat-form-field class="create-card__form-field" appearance="fill">
-    <mat-label class="create-card__form-label">Date</mat-label>
-    <input
-      type="date"
-      matInput
-      formControlName="date"
-      [errorStateMatcher]="matcher"
-      class="create-card__from-input"
-      placeholder="data: ..."
-    />
-
-    <mat-error *ngIf="getInputControl('date').hasError('timeError')"
-      >The date is invalid</mat-error
-    >
-    <mat-error *ngIf="getInputControl('date').hasError('required')"
-      >Please enter a link to the image</mat-error
-    >
-  </mat-form-field>
-
   <div class="create-card__btns-group">
     <button
       mat-raised-button
@@ -103,7 +84,7 @@
       [bgColor]="'#2F80ED'"
       class="create-card__btn"
     >
-      submit
+      Create card
     </button>
   </div>
 </form>

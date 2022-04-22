@@ -6,8 +6,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AddCard } from 'src/app/redux/actions/card.action';
+import { IAppState } from 'src/app/redux/states/app.state';
 import { MyErrorStateMatcher } from 'src/app/shared/error-state-matcher.model';
-import { TimeValidatorDirective } from '../../directives/time-validator.directive';
 import regUriPattern from './shared/reg-exp-patterns.json';
 
 @Component({
@@ -33,10 +35,6 @@ export class CreateCardFormComponent {
       Validators.required,
       Validators.pattern(this.regularUriPattern),
     ]),
-    date: new FormControl('', [
-      Validators.required,
-      TimeValidatorDirective.validate(),
-    ]),
   });
 
   get title(): AbstractControl {
@@ -49,11 +47,21 @@ export class CreateCardFormComponent {
     return this.cardFormControl.get(name) as AbstractControl;
   }
 
-  public constructor(private router: Router) {}
+  public constructor(private router: Router, private store: Store<IAppState>) {}
 
   public submit(): void {
     if (this.cardFormControl.invalid) return;
-
-    this.router.navigateByUrl('/');
+    console.log({
+      id: 'adasdgrwr',
+      ...this.cardFormControl.value,
+      date: new Date(),
+    });
+    this.store.dispatch(
+      new AddCard({
+        id: 'adasdgrwr',
+        ...this.cardFormControl.value,
+        date: new Date(),
+      })
+    );
   }
 }
