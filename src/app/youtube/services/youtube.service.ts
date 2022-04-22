@@ -28,7 +28,7 @@ export class YoutubeService {
   }
 
   public addResponse(res: Response): Observable<Response> {
-    this.responses.push(res);
+    this.responses = [res, ...this.responses];
     return of(res);
   }
 

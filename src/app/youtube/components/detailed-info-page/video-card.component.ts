@@ -31,6 +31,9 @@ export class VideoCardComponent implements OnInit {
             })
           )
           .subscribe((data: Item | null) => {
+            if (!data) {
+              this.router.navigate(['404']);
+            }
             this.itemData = data;
           });
       });

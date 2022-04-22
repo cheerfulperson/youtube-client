@@ -5,7 +5,6 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AddCard } from 'src/app/redux/actions/card.action';
 import { IAppState } from 'src/app/redux/states/app.state';
@@ -47,21 +46,24 @@ export class CreateCardFormComponent {
     return this.cardFormControl.get(name) as AbstractControl;
   }
 
-  public constructor(private router: Router, private store: Store<IAppState>) {}
+  public constructor(private store: Store) {}
 
   public submit(): void {
     if (this.cardFormControl.invalid) return;
-    console.log({
-      id: 'adasdgrwr',
-      ...this.cardFormControl.value,
-      date: new Date(),
-    });
-    this.store.dispatch(
+
+    (<Store<IAppState>>this.store).dispatch(
       new AddCard({
         id: 'adasdgrwr',
         ...this.cardFormControl.value,
         date: new Date(),
       })
     );
+
+    this.cardFormControl.setValue({
+      title: '',
+      description: '',
+      imageLink: '',
+      videoLink: '',
+    });
   }
 }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { delay, mapTo, Subject, Subscription } from 'rxjs';
 import { FetchDataService } from 'src/app/core/services/fetch-data.service';
+import { SearchHandlerService } from 'src/app/core/services/search-handler.service';
 
 @Component({
   selector: 'app-search',
@@ -16,7 +18,11 @@ export class SearchComponent {
 
   public isUserTyping: boolean = false;
 
-  public constructor(private fetchDataService: FetchDataService) {}
+  public constructor(
+    private fetchDataService: FetchDataService,
+    private router: Router,
+    private searchService: SearchHandlerService
+  ) {}
 
   public fetchResponseResults(): void {
     this.isUserTyping = true;
@@ -34,5 +40,11 @@ export class SearchComponent {
       });
 
     this.debounceSubject.next(this.searchInputValue);
+  }
+
+  public resetResponse(): void {
+    this.searchService.deleteResponse();
+    this.searchInputValue = '';
+    this.router.navigateByUrl('');
   }
 }

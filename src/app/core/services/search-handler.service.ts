@@ -33,7 +33,14 @@ export class SearchHandlerService {
     this.responseAnnouncedSource.next(this.sortedData);
   }
 
+  public deleteResponse(): void {
+    this.sortedData = undefined;
+    this.responseAnnouncedSource.next(this.sortedData);
+  }
+
   public sortbyDate(): void {
+    if (!this.responseData) return;
+
     this.sortedData = this.responseData?.items;
     this.sortedData?.sort((a, b) => {
       return this.isIncreasingValues
@@ -46,6 +53,8 @@ export class SearchHandlerService {
   }
 
   public sortByCountOfViews(): void {
+    if (!this.responseData) return;
+
     this.sortedData = this.responseData?.items;
     this.sortedData?.sort((a, b) => {
       const aCountOfview: number = Number(a.statistics.viewCount);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { SearchHandlerService } from 'src/app/core/services/search-handler.service';
 import { GetCards } from 'src/app/redux/actions/card.action';
+import { GetResponses } from 'src/app/redux/actions/response.actions';
 import { selectCardList } from 'src/app/redux/selectors/card.selectors';
 import { selectResponseList } from 'src/app/redux/selectors/response.selectors';
 import { ICardInfo } from 'src/app/redux/state.models';
@@ -33,7 +34,7 @@ export class MainPageComponent implements OnInit {
     private store: Store
   ) {
     this.youtubeService.response$.subscribe((res: Item[] | undefined) => {
-      console.log(res);
+      this.store.dispatch(new GetResponses());
       this.videoItems = res;
     });
 

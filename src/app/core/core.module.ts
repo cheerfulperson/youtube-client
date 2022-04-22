@@ -20,6 +20,7 @@ import { AuthService } from '../auth/services/auth.service';
 import { HttpInterceptorService } from './services/http-interceptor.service';
 import { appReducers } from '../redux/reducers/app.reducers';
 import { CardEffects } from '../redux/effects/card.effects';
+import { ResponseEffects } from '../redux/effects/response.effects';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { CardEffects } from '../redux/effects/card.effects';
     RouterModule,
     HttpClientModule,
     StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot([CardEffects]),
+    EffectsModule.forRoot([CardEffects, ResponseEffects]),
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
   ],
   exports: [HeaderComponent, LogoComponent, HttpClientModule],
