@@ -15,7 +15,10 @@
         ],
         "createDefaultProgram": true
       },
-      "plugins": ["@typescript-eslint", "import"],
+      "plugins": [
+        "@typescript-eslint",
+        "import"
+      ],
       "extends": [
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
@@ -49,7 +52,9 @@
           }
         ],
         "import/prefer-default-export": "off",
-        "no-console": "off"
+        "no-console": "off",
+        "max-classes-per-file": "off",
+        "@typescript-eslint/default-param-last": "off"
       }
     },
     {
@@ -60,6 +65,17 @@
         "plugin:@angular-eslint/template/recommended"
       ],
       "rules": {}
+    },
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "plugin:ngrx/recommended"
+      ],
+      "rules": {
+        "ngrx/prefer-action-creator-in-dispatch": "off"
+      }
     }
   ]
 }

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Store } from '@ngrx/store';
 import { map, Observable } from 'rxjs';
+import { AddResponse } from 'src/app/redux/actions/response.actions';
 
 import { Item, Response } from 'src/app/shared/response.model';
 import { SearchHandlerService } from './search-handler.service';
@@ -11,21 +13,25 @@ import { SearchHandlerService } from './search-handler.service';
 export class FetchDataService {
   constructor(
     private searchHandlerService: SearchHandlerService,
-    private httpService: HttpClient
+    private httpService: HttpClient,
+    private store: Store
   ) {}
 
   public setResponseData(query: string): void {
-    this.httpService
-      .get<Response>(`/search`, {
-        params: new HttpParams()
-          .set('type', 'video')
-          .set('maxResults', '15')
-          .set('part', 'snippet')
-          .set('q', query),
-      })
-      .subscribe((data: Response) => {
-        this.searchHandlerService.insertResponse(data);
-      });
+    this.getResponseData(query).subscribe((data: Response) => {
+      this.searchHandlerService.insertResponse(data);
+      this.store.dispatch(new AddResponse(data));
+    });
+  }
+
+  public getResponseData(query: string): Observable<Response> {
+    return this.httpService.get<Response>(`/search`, {
+      params: new HttpParams()
+        .set('type', 'video')
+        .set('maxResults', '15')
+        .set('part', 'snippet')
+        .set('q', query),
+    });
   }
 
   public getVideoById(id: string): Observable<Item | null> {
