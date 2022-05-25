@@ -1,0 +1,29 @@
+<mat-card
+  class="video-card"
+  *ngIf="card"
+  appTimeBorder
+  [borderBottom]="date"
+>
+  <img
+    mat-card-image
+    [src]="card.imageLink"
+    class="video-card__image"
+    id="cardImage"
+    alt="Photo"
+  />
+
+  <mat-card-content>
+    <h2 class="video-card__title">{{ card.title }}</h2>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-raised-button
+      appBtnStyle
+      [bgColor]="'#2F80ED'"
+      class="video-card__button"
+      [routerLink]="['/video', card.id]"
+    >
+      more...
+    </button>
+  </mat-card-actions>
+</mat-card>

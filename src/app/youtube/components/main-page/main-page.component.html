@@ -1,8 +1,19 @@
 <section class="main-page">
   <div class="main-page__cards" *ngIf="videoItems">
     <app-card
-    *ngFor="let item of (videoItems | resultFilter: filterString)"
+      *ngFor="let item of videoItems | resultFilter: filterString"
       [itemData]="item"
     ></app-card>
+  </div>
+  <div class="main-page__cards" *ngIf="!videoItems">
+    <app-custom-card *ngFor="let item of cards | async" [card]="item">
+    </app-custom-card>
+    <ng-container *ngFor="let res of responses | async">
+      <app-card
+        *ngFor="let item of res.items | resultFilter: filterString"
+        [itemData]="item"
+      ></app-card>
+      
+    </ng-container>
   </div>
 </section>

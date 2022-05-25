@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { catchError, switchMap } from 'rxjs';
 import { FetchDataService } from 'src/app/core/services/fetch-data.service';
 import { Item } from 'src/app/shared/response.model';
 
@@ -21,11 +21,21 @@ export class VideoCardComponent implements OnInit {
   public ngOnInit(): void {
     this.route.paramMap
       .pipe(switchMap((params) => params.getAll('id')))
-      .subscribe((data: string) => {
-        this.itemData = this.fetchDataService.getItemById(data);
-        if (!this.itemData) {
-          this.router.navigate(['404']);
-        }
+      .subscribe((id: string) => {
+        this.fetchDataService
+          .getVideoById(id)
+          .pipe(
+            catchError(() => {
+              this.router.navigate(['404']);
+              return [];
+            })
+          )
+          .subscribe((data: Item | null) => {
+            if (!data) {
+              this.router.navigate(['404']);
+            }
+            this.itemData = data;
+          });
       });
   }
 
