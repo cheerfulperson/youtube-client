@@ -1,0 +1,30 @@
+<mat-card
+  class="video-card"
+  *ngIf="itemData"
+  appTimeBorder
+  [borderBottom]="itemData.snippet.publishedAt"
+>
+  <img
+    mat-card-image
+    [src]="itemData.snippet.thumbnails.medium.url"
+    class="video-card__image"
+    id="cardImage"
+    alt="Photo"
+  />
+
+  <mat-card-content>
+    <app-podcast-info [statistics]="itemData.statistics"></app-podcast-info>
+    <h2 class="video-card__title">{{ itemData.snippet.title }}</h2>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-raised-button
+      appBtnStyle
+      [bgColor]="'#2F80ED'"
+      class="video-card__button"
+      (click)="selectItem()"
+    >
+      more...
+    </button>
+  </mat-card-actions>
+</mat-card>

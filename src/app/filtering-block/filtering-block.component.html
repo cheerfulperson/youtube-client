@@ -1,0 +1,33 @@
+<mat-toolbar class="pre-header">
+  <ul class="pre-header__list">
+    <li class="pre-header__list-item">
+      <p>Sorting by:</p>
+    </li>
+    <li class="pre-header__list-item" *ngFor="let name of sortingList">
+      <p
+        class="pre-header__text"
+        [ngStyle]="{
+          'text-decoration': choice === name ? 'none' : 'underline'
+        }"
+        (click)="changeChoice(name)"
+      >
+        {{ name }}
+      </p>
+      <mat-icon
+        *ngIf="choice === name && name !== 'by word or sentance'"
+        class="pre-header__mat-icon"
+        >{{
+          searchHandlerService.isIncreasingValues
+            ? 'arrow_downward'
+            : 'arrow_upward'
+        }}</mat-icon
+      >
+    </li>
+    <li class="pre-header__list-item">
+      <app-word-input
+        [choice]="choice"
+        (choiceChanged)="choice = $event"
+      ></app-word-input>
+    </li>
+  </ul>
+</mat-toolbar>

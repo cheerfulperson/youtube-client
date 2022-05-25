@@ -1,0 +1,30 @@
+.pre-header {
+    height: 50px;
+    background: #E5E5E5;
+    justify-content: center;
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    &__list-item {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        margin: 0 10.5px;
+        user-select: none; 
+        cursor: pointer;
+    }
+
+    &__mat-icon {
+        color: black;
+        transform: scale(0.8);
+    }
+
+    &__text {
+        color: #2f80ed;
+        text-decoration: underline;
+    }
+}
