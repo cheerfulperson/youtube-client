@@ -13,14 +13,21 @@
       >
         {{ name }}
       </p>
-      <mat-icon *ngIf="choice === name" class="pre-header__mat-icon">{{
-        searchHandlerService.isIncreasingValues
-          ? 'arrow_downward'
-          : 'arrow_upward'
-      }}</mat-icon>
+      <mat-icon
+        *ngIf="choice === name && name !== 'by word or sentance'"
+        class="pre-header__mat-icon"
+        >{{
+          searchHandlerService.isIncreasingValues
+            ? 'arrow_downward'
+            : 'arrow_upward'
+        }}</mat-icon
+      >
     </li>
     <li class="pre-header__list-item">
-        <app-word-input [choice]="choice"></app-word-input>
+      <app-word-input
+        [choice]="choice"
+        (choiceChanged)="choice = $event"
+      ></app-word-input>
     </li>
   </ul>
 </mat-toolbar>
