@@ -1,0 +1,8 @@
+<section class="main-page">
+  <div class="main-page__cards" *ngIf="videoItems">
+    <app-card
+    *ngFor="let item of (videoItems | resultFilter: filterString)"
+      [itemData]="item"
+    ></app-card>
+  </div>
+</section>

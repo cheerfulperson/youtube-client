@@ -1,0 +1,79 @@
+<form class="registration" [formGroup]="loginFormGroup">
+  <h2 class="registration__title">registration</h2>
+
+  <mat-form-field class="registration__form-field" appearance="fill">
+    <mat-label class="registration__form-label">First name</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="firstName"
+      class="registration__from-input"
+      placeholder="Jhon"
+    />
+    <mat-error>No</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="registration__form-field" appearance="fill">
+    <mat-label class="registration__form-label">LastName</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="lastName"
+      class="registration__from-input"
+      placeholder="Smith"
+    />
+    <mat-error>No</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="registration__form-field" appearance="fill">
+    <mat-label class="registration__form-label">Email</mat-label>
+    <input
+      type="email"
+      matInput
+      formControlName="email"
+      class="registration__from-input"
+      placeholder="pat@example.com"
+    />
+    <mat-error>No</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="registration__form-field" appearance="fill">
+    <mat-label class="registration__form-label">Password</mat-label>
+    <input
+      matInput
+      [type]="hide ? 'password' : 'text'"
+      autocomplete="off"
+      formControlName="password"
+      class="registration__from-input"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+    <mat-error>No</mat-error>
+  </mat-form-field>
+
+  <div class="registration__btns-group">
+    <button
+      mat-button
+      class="registration__btn registration__btn-reg"
+      routerLink="/auth/login"
+    >
+      login
+    </button>
+    <button
+      mat-raised-button
+      appBtnStyle
+      [bgColor]="'#2F80ED'"
+      class="registration__btn"
+      (click)="submit()"
+    >
+      registration
+    </button>
+  </div>
+</form>

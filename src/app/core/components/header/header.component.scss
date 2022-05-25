@@ -1,0 +1,27 @@
+.header-block {
+    background: #E5E5E5;
+}
+
+.header {
+    position: relative;
+    margin: auto;
+    height: 80px;
+    background: #E5E5E5;
+    justify-content: center;
+    max-width: 1920px;
+    @media (max-width: 960px) {
+        justify-content: left;
+    }
+    @media (max-width: 640px) {
+        justify-content: center;
+        flex-wrap: wrap;
+        height: 120px;
+    }
+}
+
+.header__list {
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    cursor: pointer;
+}

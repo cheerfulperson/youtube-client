@@ -9,5 +9,9 @@ export class BtnStyleDirective {
     this.el.nativeElement.style.lineHeight = 0;
   }
 
-  constructor(private el: ElementRef) {}
+  @Input() set textColor(color: string) {
+    this.el.nativeElement.style.color = color;
+  }
+
+  public constructor(private el: ElementRef) {}
 }

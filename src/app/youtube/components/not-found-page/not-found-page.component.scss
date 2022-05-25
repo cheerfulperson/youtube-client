@@ -1,0 +1,40 @@
+.not-found {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  max-width: 360px;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  &__logo {
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        box-shadow: 2px 2px 4px gray;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    margin-left: 27px;
+    line-height: 1;
+    font-weight: 700;
+    font-size: 24px;
+    color: #828282;
+  }
+
+  @media (max-width: 360px) {
+    flex-wrap: wrap;
+    &__text {
+      text-align: center;
+      margin: auto;
+    }
+  }
+}
