@@ -19,7 +19,7 @@ import {
 export class TimeValidatorDirective {
   public static validate(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      if (new Date(control.value).getTime() < Date.now()) {
+      if (new Date(control.value).getTime() <= Date.now()) {
         return {
           timeError: 'an entered date should now be in the future',
         };

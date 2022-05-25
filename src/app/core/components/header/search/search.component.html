@@ -1,4 +1,13 @@
 <div class="search">
+  <button
+    mat-raised-button
+    appBtnStyle
+    [bgColor]="'#2F80ED'"
+    class="settings-btn"
+    (click)="resetResponse()"
+  >
+    <mat-icon class="settings-btn-icon">save</mat-icon>
+  </button>
   <div class="search__block">
     <input
       class="search__input"

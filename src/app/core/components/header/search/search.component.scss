@@ -8,6 +8,7 @@
 .search {
     @include flex;
     min-width: 570px;
+    margin: 0 5px 0 5px;
 
     @media (max-width: 1440px) {
         min-width: 360px;
@@ -72,5 +73,17 @@
         .search__settings-btn-icon {
             transform: scale(0.8);
         }
+    }
+}
+
+.settings-btn {
+    display: block;
+    min-width: 24px;
+    height: 24px;
+    line-height: 0;
+    padding: 0;
+
+    .settings-btn-icon {
+        transform: scale(0.8);
     }
 }
